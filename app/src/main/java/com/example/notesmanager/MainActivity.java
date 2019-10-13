@@ -23,6 +23,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Vector;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     static ArrayList<String> arrayList = new ArrayList<>();
     static ArrayAdapter arrayAdapter;
     static String[] titles = new String[20];
+    //boolean f = true;
 
     //static Set<String> set;
     @Override
@@ -41,9 +43,26 @@ public class MainActivity extends AppCompatActivity {
         lv = findViewById(R.id.listview);
 
 
+
+
         pbtn = findViewById(R.id.plus);
         arrayAdapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1,arrayList);
         lv.setAdapter(arrayAdapter);
+
+
+        SharedPreferences pref = getSharedPreferences("savingdata", 0);
+        i = pref.getInt("ivalue", -1);
+        if (i != -1)
+        {
+            for (int j = 0; j <= i; j++)
+            {
+                String temp = pref.getString("sstr" + j, "Sample note");
+                arrayList.add(temp);
+            }
+        }
+
+
+
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -81,6 +100,45 @@ public class MainActivity extends AppCompatActivity {
 
 
     }// onCreate
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences pref = getSharedPreferences("savingdata", 0);
+        SharedPreferences.Editor edit= pref.edit();
+
+        edit.putInt("ivalue", i);
+        for (int j = 0; j <= i; j++)
+        {
+            edit.putString("sstr" + j, arrayList.get(j));
+
+        }
+        edit.commit();
+    }
+
+  /*
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences pref = getSharedPreferences("savingdata", 0);
+        //String e = pref.getString("email", "");
+        //String s = pref.getString("story", "");
+        //email.setText(e);
+        //story.setText(s);
+        i = pref.getInt("ivalue", -1);
+        if (i != 0)
+        {
+            for (int j = 0; j <= i; j++)
+            {
+                String temp = pref.getString("sstr" + i, "Sample note");
+                arrayList.add(temp);
+            }
+
+        }
+
+    }
+    */
+
 
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
