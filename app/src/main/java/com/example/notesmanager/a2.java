@@ -28,6 +28,7 @@ import java.util.StringTokenizer;
 import java.util.Vector;
 
 
+import static com.example.notesmanager.MainActivity.arrayAdapter;
 import static com.example.notesmanager.MainActivity.arrayList;
 
 
@@ -58,10 +59,6 @@ public class a2 extends AppCompatActivity  {
         dt = "Date: " + sdf.format(new Date());
 
         dictionary = new Vector<String>();
-
-
-
-
         flag = true;
 
         try
@@ -92,7 +89,7 @@ public class a2 extends AppCompatActivity  {
 
         Log.d("***********","****" +dictionary.size());
 
-        /*
+
 
         Thread tk = new Thread(new Runnable() {
             @Override
@@ -153,6 +150,20 @@ public class a2 extends AppCompatActivity  {
                     {
                         e.printStackTrace();
                     }
+                    try
+                    {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                arrayAdapter.notifyDataSetChanged();
+                                arrayAdapter.notifyDataSetInvalidated();
+                            }
+                        });
+                    }
+                    catch (Exception e)
+                    {
+
+                    }
 
                 }
 
@@ -160,7 +171,7 @@ public class a2 extends AppCompatActivity  {
         });
         tk.start();
 
-         */
+
 
 
 
@@ -172,13 +183,14 @@ public class a2 extends AppCompatActivity  {
         ebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                flag = false;
+
 
 
 
 
                 if (noteIndex != -1)
                 {
+                    flag = false;
                     Save(title.getText().toString() + noteIndex, des.getText().toString());
                     Save( ""+ noteIndex, dt);
                     Intent intent = new Intent();
@@ -216,7 +228,7 @@ public class a2 extends AppCompatActivity  {
             OutputStreamWriter out = new OutputStreamWriter(openFileOutput(fileName, 0));
             out.write(s);
             out.close();
-            Toast.makeText(this, "Note Saved!", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Note Saved!", Toast.LENGTH_SHORT).show();
         } catch (Throwable t) {
             Toast.makeText(this, "Exception: " + t.toString(), Toast.LENGTH_LONG).show();
         }

@@ -28,6 +28,7 @@
         android:layout_marginTop="92dp"
         android:ems="10"
         android:gravity="start|top"
+        android:hint="Write your note here"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.29"
@@ -47,5 +48,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.29" />
+
+    <EditText
+        android:id="@+id/mistakes1"
+        android:layout_width="317dp"
+        android:layout_height="119dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Mistakes"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description1"
+        app:layout_constraintVertical_bias="0.304" />
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
