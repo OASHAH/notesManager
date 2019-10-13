@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences pref = getSharedPreferences("savingdata", 0);
         i = pref.getInt("ivalue", -1);
-        if (i != -1)
+        if (i != -1) // if none available
         {
             for (int j = 0; j <= i; j++)
             {
