@@ -63,9 +63,6 @@ public class editnote extends AppCompatActivity {
 
         dictionary = new Vector<String>();
         flg = true;
-
-
-
         /*
 
         try
@@ -201,7 +198,6 @@ public class editnote extends AppCompatActivity {
                     arrayList.set(noteIndex1, tvv);
                     //Intent fh = new Intent(getApplicationContext(), MainActivity.class);
                     //startActivity(fh);
-
                     finish();
             }
         });

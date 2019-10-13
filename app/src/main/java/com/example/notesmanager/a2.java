@@ -49,7 +49,7 @@ public class a2 extends AppCompatActivity  {
 
 
         title = findViewById(R.id.title);
-        ebtn = findViewById(R.id.sbutton);
+        ebtn = findViewById(R.id.sb1);
         des = findViewById(R.id.description);
         m = findViewById(R.id.mistakes);
         Intent inten = getIntent();

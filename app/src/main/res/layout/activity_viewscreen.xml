@@ -12,6 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_edit"
@@ -19,14 +21,14 @@
 
     <TextView
         android:id="@+id/descriptionview"
-        android:layout_width="372dp"
-        android:layout_height="335dp"
-        android:layout_marginTop="156dp"
+        android:layout_width="351dp"
+        android:layout_height="463dp"
+        android:layout_marginTop="168dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.41"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,7 +41,7 @@
         android:layout_marginTop="16dp"
         android:hint="Enter title"
         app:layout_constraintBottom_toTopOf="@+id/description"
-        app:layout_constraintEnd_toStartOf="@+id/sbutton"
+        app:layout_constraintEnd_toStartOf="@+id/sbutton1"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -51,10 +53,10 @@
         android:layout_height="48dp"
         app:layout_constraintBottom_toTopOf="@+id/descriptionview"
         app:layout_constraintEnd_toStartOf="@+id/eebutton"
-        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintHorizontal_bias="0.652"
         app:layout_constraintStart_toEndOf="@+id/titleview"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24"
+        app:layout_constraintVertical_bias="0.212"
         app:srcCompat="@android:drawable/ic_menu_delete" />
 
     <TextView
